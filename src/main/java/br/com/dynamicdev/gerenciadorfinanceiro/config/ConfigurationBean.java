@@ -1,4 +1,4 @@
-package br.com.dynamicdev.config;
+package br.com.dynamicdev.gerenciadorfinanceiro.config;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.faces.annotation.FacesConfig;

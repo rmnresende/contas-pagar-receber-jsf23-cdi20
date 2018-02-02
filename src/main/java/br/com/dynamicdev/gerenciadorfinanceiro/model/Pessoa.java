@@ -1,7 +1,22 @@
-package br.com.dynamicdev.model;
+package br.com.dynamicdev.gerenciadorfinanceiro.model;
 
 import java.time.LocalDate;
 
+import javax.persistence.Column;
+import javax.persistence.DiscriminatorColumn;
+import javax.persistence.DiscriminatorType;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "pessoa")
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "TIPO_PESSOA", discriminatorType = DiscriminatorType.STRING)
 public abstract class Pessoa {
 
 	Long id;
@@ -16,6 +31,9 @@ public abstract class Pessoa {
 
 	LocalDate dataCadastro;
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id_pessoa")
 	public Long getId() {
 		return id;
 	}
@@ -24,6 +42,8 @@ public abstract class Pessoa {
 		this.id = id;
 	}
 
+
+	@Column(name = "nome_nomefantasia")
 	public String getNomeNomeFantasia() {
 		return nomeNomeFantasia;
 	}
@@ -56,6 +76,7 @@ public abstract class Pessoa {
 		this.telefone = telefone;
 	}
 
+	@Column(name = "data_cadastro")
 	public LocalDate getDataCadastro() {
 		return dataCadastro;
 	}

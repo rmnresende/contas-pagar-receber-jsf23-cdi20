@@ -1,14 +1,14 @@
-package br.com.dynamicdev.model;
+package br.com.dynamicdev.gerenciadorfinanceiro.model;
 
-import java.math.BigDecimal;
+import java.util.List;
 
-public class Fornecedor {
+public class Empresa {
 
 	private Long id;
 
 	private PessoaJuridica pessoaJuridica;
 
-	private BigDecimal valorMinimoCompra;
+	private List<Funcionario> funcionarios;
 
 	public Long getId() {
 		return id;
@@ -26,12 +26,12 @@ public class Fornecedor {
 		this.pessoaJuridica = pessoaJuridica;
 	}
 
-	public BigDecimal getValorMinimoCompra() {
-		return valorMinimoCompra;
+	public List<Funcionario> getFuncionarios() {
+		return funcionarios;
 	}
 
-	public void setValorMinimoCompra(BigDecimal valorMinimoCompra) {
-		this.valorMinimoCompra = valorMinimoCompra;
+	public void setFuncionarios(List<Funcionario> funcionarios) {
+		this.funcionarios = funcionarios;
 	}
 
 	@Override
@@ -50,7 +50,7 @@ public class Fornecedor {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Fornecedor other = (Fornecedor) obj;
+		Empresa other = (Empresa) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;

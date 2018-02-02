@@ -1,4 +1,4 @@
-package br.com.dynamicdev.utils;
+package br.com.dynamicdev.gerenciadorfinanceiro.utils;
 
 import java.util.Collection;
 

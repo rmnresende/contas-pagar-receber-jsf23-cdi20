@@ -1,5 +1,10 @@
-package br.com.dynamicdev.model;
+package br.com.dynamicdev.gerenciadorfinanceiro.model;
 
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
+
+@Entity
+@DiscriminatorValue("PJ")
 public class PessoaJuridica extends Pessoa{
 
 	private String razaoSocial;

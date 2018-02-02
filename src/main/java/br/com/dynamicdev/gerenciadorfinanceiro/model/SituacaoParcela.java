@@ -1,4 +1,4 @@
-package br.com.dynamicdev.model;
+package br.com.dynamicdev.gerenciadorfinanceiro.model;
 
 public enum SituacaoParcela {
 

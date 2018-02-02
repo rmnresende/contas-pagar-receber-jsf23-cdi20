@@ -1,4 +1,4 @@
-package br.com.dynamicdev.model.interfaces;
+package br.com.dynamicdev.gerenciadorfinanceiro.model.interfaces;
 
 import java.math.BigDecimal;
 

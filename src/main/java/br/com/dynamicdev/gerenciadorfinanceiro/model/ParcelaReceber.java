@@ -1,17 +1,17 @@
-package br.com.dynamicdev.model;
+package br.com.dynamicdev.gerenciadorfinanceiro.model;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
-import br.com.dynamicdev.model.interfaces.Parcela;
+import br.com.dynamicdev.gerenciadorfinanceiro.model.interfaces.Parcela;
 
-public class ParcelaPagar implements Parcela {
+public class ParcelaReceber implements Parcela {
 
 	private Long id;
 
 	private int numero;
 
-	private ContaPagar contaPagar;
+	private ContaReceber contaReceber;
 
 	private LocalDate dataVencimento;
 
@@ -39,12 +39,12 @@ public class ParcelaPagar implements Parcela {
 		this.numero = numero;
 	}
 
-	public ContaPagar getContaPagar() {
-		return contaPagar;
+	public ContaReceber getContaReceber() {
+		return contaReceber;
 	}
 
-	public void setContaPagar(ContaPagar contaPagar) {
-		this.contaPagar = contaPagar;
+	public void setContaReceber(ContaReceber contaReceber) {
+		this.contaReceber = contaReceber;
 	}
 
 	public LocalDate getDataVencimento() {
@@ -103,7 +103,7 @@ public class ParcelaPagar implements Parcela {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		ParcelaPagar other = (ParcelaPagar) obj;
+		ParcelaReceber other = (ParcelaReceber) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;
@@ -127,10 +127,7 @@ public class ParcelaPagar implements Parcela {
 		return this.situacao.equals(SituacaoParcela.CANCELADA);
 	}
 
-	public boolean isParcelaAPagar() {
-		return !isParcelaCancelada() && !isParcelaPaga();
-	}
-
+	@Override
 	public BigDecimal getValorLiquido() {
 
 		if (this.valorBruto == null) {
@@ -142,5 +139,9 @@ public class ParcelaPagar implements Parcela {
 		}
 
 		return this.valorBruto.add(acrescimoDesconto);
+	}
+
+	public boolean isParcelaAReceber() {
+		return !isParcelaCancelada() && !isParcelaPaga();
 	}
 }

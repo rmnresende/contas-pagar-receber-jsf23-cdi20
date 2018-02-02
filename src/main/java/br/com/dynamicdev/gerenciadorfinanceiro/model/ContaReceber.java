@@ -1,19 +1,19 @@
-package br.com.dynamicdev.model;
+package br.com.dynamicdev.gerenciadorfinanceiro.model;
 
 import java.math.BigDecimal;
 import java.util.List;
 
-import br.com.dynamicdev.utils.UtilsCollections;
+import br.com.dynamicdev.gerenciadorfinanceiro.utils.UtilsCollections;
 
-public class ContaPagar {
+public class ContaReceber {
 
 	private Long id;
 
-	private List<ParcelaPagar> parcelas;
+	private List<ParcelaReceber> parcelas;
 
 	private BigDecimal valorTotalConta;
 
-	private Fornecedor credor;
+	private Cliente devedor;
 
 	public Long getId() {
 		return id;
@@ -23,11 +23,11 @@ public class ContaPagar {
 		this.id = id;
 	}
 
-	public List<ParcelaPagar> getParcelas() {
+	public List<ParcelaReceber> getParcelas() {
 		return parcelas;
 	}
 
-	public void setParcelas(List<ParcelaPagar> parcelas) {
+	public void setParcelas(List<ParcelaReceber> parcelas) {
 		this.parcelas = parcelas;
 	}
 
@@ -39,12 +39,12 @@ public class ContaPagar {
 		this.valorTotalConta = valorTotalConta;
 	}
 
-	public Fornecedor getCredor() {
-		return credor;
+	public Cliente getDevedor() {
+		return devedor;
 	}
 
-	public void setCredor(Fornecedor credor) {
-		this.credor = credor;
+	public void setDevedor(Cliente devedor) {
+		this.devedor = devedor;
 	}
 
 	@Override
@@ -63,7 +63,7 @@ public class ContaPagar {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		ContaPagar other = (ContaPagar) obj;
+		ContaReceber other = (ContaReceber) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;
@@ -72,23 +72,25 @@ public class ContaPagar {
 		return true;
 	}
 
-	public BigDecimal totalPago() {
+	public BigDecimal totalRecebido() {
 
 		if (new UtilsCollections().checkCollectionIsNotNullAndNotEmpty(this.parcelas)) {
 
-			return this.parcelas.stream().filter(p -> p.isParcelaPaga()).map(p -> p.getValorLiquido())
-					.reduce(BigDecimal.ZERO, BigDecimal::add);
+			return this.parcelas.stream().filter(p -> p.isParcelaPaga())
+			                             .map(p -> p.getValorLiquido())
+			                             .reduce(BigDecimal.ZERO, BigDecimal::add);
 		}
 
 		return BigDecimal.ZERO;
 	}
 
-	public BigDecimal totalAPagar() {
+	public BigDecimal totalAReceber() {
 
 		if (new UtilsCollections().checkCollectionIsNotNullAndNotEmpty(this.parcelas)) {
 
-			return this.parcelas.stream().filter(p -> p.isParcelaAPagar()).map(p -> p.getValorLiquido())
-					.reduce(BigDecimal.ZERO, BigDecimal::add);
+			return this.parcelas.stream().filter(p -> p.isParcelaAReceber())
+			                             .map(p -> p.getValorLiquido())
+			                             .reduce(BigDecimal.ZERO, BigDecimal::add);
 		}
 
 		return BigDecimal.ZERO;

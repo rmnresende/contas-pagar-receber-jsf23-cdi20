@@ -1,4 +1,4 @@
-package br.com.dynamicdev.model;
+package br.com.dynamicdev.gerenciadorfinanceiro.model;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
