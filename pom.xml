@@ -70,6 +70,13 @@
 			<version>6.0.6</version>
 		</dependency>
 
+		<!-- Hibernate ja com suporte ao Java 8 -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>5.2.12.Final</version>
+		</dependency>
+
 		<!-- Gerenciado de migracoes de banco de dados -->
 		<dependency>
 			<groupId>org.flywaydb</groupId>
