@@ -1,5 +1,6 @@
 package br.com.dynamicdev.gerenciadorfinanceiro.model;
 
+import javax.persistence.Column;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
@@ -11,6 +12,7 @@ public class PessoaJuridica extends Pessoa{
 
 	private String cnpj;
 
+	@Column(name="razao_social")
 	public String getRazaoSocial() {
 		return razaoSocial;
 	}
