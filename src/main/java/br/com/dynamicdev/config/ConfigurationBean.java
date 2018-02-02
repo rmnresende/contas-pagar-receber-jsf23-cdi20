@@ -1,4 +1,4 @@
-package br.com.dynamicdev;
+package br.com.dynamicdev.config;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.faces.annotation.FacesConfig;
