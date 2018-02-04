@@ -2,6 +2,18 @@ package br.com.dynamicdev.gerenciadorfinanceiro.model;
 
 import java.math.BigDecimal;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "cliente")
 public class Cliente {
 
 	private Long id;
@@ -10,6 +22,9 @@ public class Cliente {
 
 	private BigDecimal limiteCredito;
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id")
 	public Long getId() {
 		return id;
 	}
@@ -18,6 +33,8 @@ public class Cliente {
 		this.id = id;
 	}
 
+	@OneToOne(cascade = {CascadeType.MERGE,CascadeType.REMOVE})
+	@JoinColumn(name="id_pessoa")
 	public Pessoa getPessoa() {
 		return pessoa;
 	}
@@ -26,6 +43,7 @@ public class Cliente {
 		this.pessoa = pessoa;
 	}
 
+	@Column(name="limite_credito")
 	public BigDecimal getLimiteCredito() {
 		return limiteCredito;
 	}
