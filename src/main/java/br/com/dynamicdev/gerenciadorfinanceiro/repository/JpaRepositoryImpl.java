@@ -23,7 +23,7 @@ public class JpaRepositoryImpl<T, ID extends Serializable> implements JpaReposit
 
 	@SuppressWarnings("unchecked")
 	public JpaRepositoryImpl() {
-
+		// recuperando a classe do tipo parametrizado T
 		this.classeEntidade = (Class<T>) ((ParameterizedType) getClass().getGenericSuperclass())
 				.getActualTypeArguments()[0];
 	}
@@ -33,6 +33,7 @@ public class JpaRepositoryImpl<T, ID extends Serializable> implements JpaReposit
 
 		Session session = manager.unwrap(Session.class);
 		CriteriaBuilder builder = session.getCriteriaBuilder();
+		//criando criteria do tipo T
 		CriteriaQuery<T> criteriaQuery = builder.createQuery(classeEntidade);
 		Root<T> root = criteriaQuery.from(classeEntidade);
 		criteriaQuery.select(root);
@@ -48,15 +49,17 @@ public class JpaRepositoryImpl<T, ID extends Serializable> implements JpaReposit
 		Field id;
 
 		try {
+			//recuperando o atributo chamado id
 			id = classe.getDeclaredField("id");
 		} catch (NoSuchFieldException | SecurityException e) {
+			//obrigatoriamente a classe deve ter o atributo id
 			throw new Exception("A entidade não possui o atributo Id!");
 		}
 
 		return id;
 	}
 
-	private boolean isNovaEntidade(Field id) throws Exception{
+	private boolean isNovaEntidade(Field id) throws Exception {
 
 		id.setAccessible(true);
 		Object fieldType = id.getType();
@@ -68,9 +71,10 @@ public class JpaRepositoryImpl<T, ID extends Serializable> implements JpaReposit
 	@Override
 	public T salvar(T entidade) throws Exception {
 
+		//obtendo os dado do campo id da classe/entidade T
 		Field id = getId();
 
-		if(isNovaEntidade(id)) {
+		if (isNovaEntidade(id)) {
 			manager.persist(entidade);
 			return entidade;
 		}
@@ -88,6 +92,7 @@ public class JpaRepositoryImpl<T, ID extends Serializable> implements JpaReposit
 	public T recuperarPeloId(Serializable id) throws Exception {
 
 		if (id == null) {
+			//impossivel recuperar pelo id se o mesmo for nulo
 			throw new Exception("Id não pode ser nulo!");
 		}
 
