@@ -1,16 +1,4 @@
-#TEMPLATE DE GITIGONE OBTIDO EM https://gist.github.com/chhh/4961200
-
-#
-# Project specific excludes
-#
-
-tomcat
-
-#
-# Default excludes
-#
-
-# Binaries
+# Arquivos binarios
 *.7z
 *.dmg
 *.gz
@@ -28,18 +16,18 @@ tomcat
 # Maven 
 target/
 
-# IntelliJ project files 
+# Arquivos de projetos do IntelliJ
 *.iml
 *.iws
 *.ipr
 .idea/
 
-# eclipse project file
+# Arquivos de projetos do eclipse
 .settings/
 .classpath
 .project
 
-# NetBeans specific
+# Arquivos de projetos do NetBeans
 nbproject/private/
 build/
 nbbuild/
@@ -49,7 +37,7 @@ nbactions.xml
 nb-configuration.xml
 
 
-# OS
+# S.O.
 .DS_Store
 
 # Misc
