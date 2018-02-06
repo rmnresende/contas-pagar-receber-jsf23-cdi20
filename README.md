@@ -11,6 +11,7 @@ quem quer usar JSF 2.2.**
  * Java 8
  * JavaEE 8
  * JSF 2.3
+ * <a href="https://github.com/rmnresende/layout-primefaces-patagonia">Fork do Layout Blue AlgaWorks</a>
  * Eclipse Oxygen.2
  * Tomcat 8.5.24 
  * Maven
