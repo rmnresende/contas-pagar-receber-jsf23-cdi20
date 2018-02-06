@@ -29,7 +29,7 @@ quem quer usar JSF 2.2.**
   no BD de forma fácil em uma inteface gráfica, mas nada impede que se use outro SGDB ou mesmo a inteface via linha de comando.
   
   Após todos os downloads, clone o projeto via Eclipse, <a href="https://medium.com/@josevieiraneto/git-workflow-com-eclipse-660e83221f41"> veja aqui como clonar um projeto usando o Eclipse</a>, e o adicione ao seu workspace. Clique com o botão direito
-  do mouse no projeto, selecione run as -> run configurations. Na janela que irá abrir clique o botão direito em Maven Build e depois clique em New. Nas opçes que irão aparecer no lado direito da tela clique em workspace e selecione o projeto. No campo goals digite o seguinte comando: clean install flyway:migrate e depois clique em run.
+  do mouse no projeto, selecione run as -> run configurations. Na janela que irá abrir clique o botão direito em Maven Build e depois clique em New. Nas opçes que irão aparecer no lado direito da tela clique em workspace e selecione o projeto. No campo goals digite o seguinte comando: **clean install flyway:migrate** e depois clique em run.
   
   O Eclipse possui um Maven embarcado, mas caso você esteja usando o Maven instalado na sua máquina, o procedimento acima pode ser feito via linha de comando também: 
   
