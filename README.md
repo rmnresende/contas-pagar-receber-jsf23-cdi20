@@ -25,13 +25,13 @@ quem quer usar JSF 2.2.**
   
   Como pode ser visto no tópico acima o projeto depende do Java 8, então é necessário baixar o <a href="http://www.oracle.com/technetwork/pt/java/javase/downloads/jdk8-downloads-2133151.html">JDK 8 </a> ou superior, depois baixe o <a href="http://www.eclipse.org/downloads/">Eclipse</a>, agora é a vez de baixar o <a href="https://tomcat.apache.org/download-80.cgi">Tomcat</a> e por último baixe o <a href="https://dev.mysql.com/downloads/mysql/">MySQL Server</a>.  
   
-  Obs.: O MySQl Workbench é opcional, mas bastante recomendável, para que possa ser possível acompanhar a evolução dos dados
-  no BD de forma fácil em uma inteface gráfica, mas nada impede que se use a inteface via linha de comando.
+  **Obs.:** O MySQl Workbench é opcional, mas bastante recomendável, para que possa ser possível acompanhar a evolução dos dados
+  no BD de forma fácil em uma inteface gráfica, mas nada impede que se use outro SGDB ou mesmo a inteface via linha de comando.
   
   Após todos os downloads, clone o projeto via Eclipse, <a href="https://medium.com/@josevieiraneto/git-workflow-com-eclipse-660e83221f41"> veja aqui como clonar um projeto usando o Eclipse</a>, e o adicione ao seu workspace. Clique com o botão direito
   do mouse no projeto, selecione run as -> run configurations. Na janela que irá abrir clique o botão direito em Maven Build e depois clique em New. Nas opçes que irão aparecer no lado direito da tela clique em workspace e selecione o projeto. No campo goals digite o seguinte comando: clean install flyway:migrate e depois clique em run.
   
-Esse procedimento irá construir o projeto e executar os scritps de criação de tabelas e inserção de dados, criando inclusive o banco de dados no MySQl, assim sendo não é necessário criar o banco manualmente pelo Workbench ou pela linha de comando.
+Esse procedimento irá construir o projeto e executar os scritps de criação de tabelas e inserção de dados, criando inclusive o banco de dados no MySQL, **assim sendo não é necessário criar o banco manualmente pelo Workbench ou pela linha de comando**.
 
 Depois clique novamente com o botão direito do mouse no projeto, selecione run as -> run on server, faça as configurações necessárias do tomcat e finalize. Pronto o projeto está rodando!
 
