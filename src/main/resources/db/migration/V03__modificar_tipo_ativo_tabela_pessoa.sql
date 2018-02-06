@@ -1,0 +1,1 @@
+ALTER TABLE pessoa MODIFY ativo tinyint(1);

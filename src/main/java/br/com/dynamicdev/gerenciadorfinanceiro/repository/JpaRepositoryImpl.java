@@ -12,8 +12,6 @@ import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 
-import org.hibernate.Session;
-
 public class JpaRepositoryImpl<T, ID extends Serializable> implements JpaRepository<T, Serializable> {
 
 	@Inject
@@ -31,9 +29,8 @@ public class JpaRepositoryImpl<T, ID extends Serializable> implements JpaReposit
 	@Override
 	public List<T> listarTodos() {
 
-		Session session = manager.unwrap(Session.class);
-		CriteriaBuilder builder = session.getCriteriaBuilder();
-		//criando criteria do tipo T
+		CriteriaBuilder builder = manager.getCriteriaBuilder();
+		// criando criteria do tipo T
 		CriteriaQuery<T> criteriaQuery = builder.createQuery(classeEntidade);
 		Root<T> root = criteriaQuery.from(classeEntidade);
 		criteriaQuery.select(root);
@@ -49,11 +46,11 @@ public class JpaRepositoryImpl<T, ID extends Serializable> implements JpaReposit
 		Field id;
 
 		try {
-			//recuperando o atributo chamado id
+			// recuperando o atributo chamado id
 			id = classe.getDeclaredField("id");
 		} catch (NoSuchFieldException | SecurityException e) {
-			//obrigatoriamente a classe deve ter o atributo id
-			throw new Exception("A entidade não possui o atributo Id!");
+			// obrigatoriamente a classe deve ter o atributo id
+			throw new Exception("A entidade não possui o atributo id!");
 		}
 
 		return id;
@@ -71,7 +68,7 @@ public class JpaRepositoryImpl<T, ID extends Serializable> implements JpaReposit
 	@Override
 	public T salvar(T entidade) throws Exception {
 
-		//obtendo os dado do campo id da classe/entidade T
+		// obtendo os dado do campo id da classe/entidade T
 		Field id = getId();
 
 		if (isNovaEntidade(id)) {
@@ -92,7 +89,7 @@ public class JpaRepositoryImpl<T, ID extends Serializable> implements JpaReposit
 	public T recuperarPeloId(Serializable id) throws Exception {
 
 		if (id == null) {
-			//impossivel recuperar pelo id se o mesmo for nulo
+			// impossivel recuperar pelo id se o mesmo for nulo
 			throw new Exception("Id não pode ser nulo!");
 		}
 

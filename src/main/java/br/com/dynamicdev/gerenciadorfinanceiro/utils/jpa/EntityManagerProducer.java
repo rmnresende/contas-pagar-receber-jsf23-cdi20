@@ -29,6 +29,7 @@ public class EntityManagerProducer implements Serializable {
 			this.factory = Persistence.createEntityManagerFactory("GerenciadorFinanceiro_PU");
 		} catch (Exception e) {
 			System.out.println("ERRO NO ENTITY MANAGER PRODUCER ===========>>>>>>>" + e.getMessage());
+			e.printStackTrace();
 		}
 	}
 
